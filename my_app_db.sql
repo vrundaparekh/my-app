@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 18, 2026 at 08:25 AM
+-- Generation Time: Jun 18, 2026 at 10:22 AM
 -- Server version: 5.7.40
 -- PHP Version: 8.0.26
 
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -122,7 +122,9 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role
 (3, 'abhi', 'mehta', 'abhi.mehta@gmail.com', '$2y$10$R0bNLzBLmxN4JG1dMDArCOavclqPbttElztx2eHyYl8sec0uVMeci', 2, 'active', 'db2d54964e134f7d368977b7e04ecb28', '2026-06-17 11:02:50', '2026-06-18 01:40:06', NULL),
 (4, 'vrunda', 'parekh', 'vrunda6013@gmail.com', '$2y$10$vQVIiG.x/DNhVMetS4DEM.jcjiDdKUcbDG0tMsBARfJpS1bOevD9i', 2, 'active', NULL, '2026-06-17 23:35:22', '2026-06-18 01:39:15', NULL),
 (5, 'dhvani', 'parekh', 'dhvani@gmail.com', '$2y$10$pP7W6aflJOQwiOGkBAAqkO8yTQoFZ7MoVRX3e9O1EB/zUH4SXYpga', 4, 'active', NULL, '2026-06-18 02:02:37', '2026-06-18 02:02:37', NULL),
-(6, 'bhumi', 'parekh', 'bhumi@gmail.com', '$2y$10$Btumg9nDF5I0Jx0UJs/Q0Oq4mXHEkivHyHH4paV/UQGaivWfd8ZBa', 3, 'active', NULL, '2026-06-18 02:30:04', '2026-06-18 02:30:04', NULL);
+(6, 'bhumi', 'parekh', 'bhumi@gmail.com', '$2y$10$Btumg9nDF5I0Jx0UJs/Q0Oq4mXHEkivHyHH4paV/UQGaivWfd8ZBa', 3, 'active', NULL, '2026-06-18 02:30:04', '2026-06-18 02:30:04', NULL),
+(7, 'test', 'data', 'test@gmail.com', '$2y$10$6njLH842UXxLPLXtYE5BLuNN/hRTxncEGbu824eG4nRzfzf1PsW1G', 2, 'active', NULL, '2026-06-18 04:26:18', '2026-06-18 04:26:18', NULL),
+(8, 'vrunda', 'parekh', 'vrundaparekh18@gmail.com', '$2y$10$Y2.2/6jC1HVG3qJYSgeOkOb3B2Ocb/kiGjXa3Z9BeXmToCOOAShpu', 2, 'active', NULL, '2026-06-18 04:27:40', '2026-06-18 04:27:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -140,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `user_profiles` (
   `profile_pic` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_profiles`
@@ -151,7 +153,9 @@ INSERT INTO `user_profiles` (`id`, `user_id`, `dob`, `gender`, `address`, `profi
 (2, 3, '1997-10-03', 'male', 'vesu surat', '1781764663_da305b9d830c192a7574.jpg'),
 (3, 4, '1997-10-20', 'female', '307, silver appartment', '1781759121_9e90e59bbff2f84bc87b.jpg'),
 (4, 5, '2006-12-13', 'female', 'baroda', '1781769517_948b485ac7d337d813a5.jpg'),
-(5, 6, '1980-08-07', 'female', '', '1781769604_437ff1030d46a7ba159b.jpg');
+(5, 6, '1980-08-07', 'female', '', '1781769604_437ff1030d46a7ba159b.jpg'),
+(6, 7, '1995-10-11', 'other', '', '1781776578_dae4870fa5183be6fd8f.jpg'),
+(7, 8, '1997-01-12', 'other', '', '1781776660_c489f7f41ce029230610.jpg');
 
 --
 -- Constraints for dumped tables
