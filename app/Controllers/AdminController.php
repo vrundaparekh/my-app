@@ -323,9 +323,6 @@ class AdminController extends BaseController
     }
     public function healthcareAssistant()
     {
-        if (!$this->isSystemAdmin()) {
-            return redirect()->to('/');
-        }
         return view('admin/healthcare_assistant');
     }
 }

@@ -42,24 +42,40 @@
             <div>
                 <h6 class="alert-heading fw-bold mb-1">AI Consultation Disclaimer</h6>
                 <p class="mb-0 small text-dark" style="font-size: 0.8rem;">
-                    This conversational voice assistant provides health reference guidelines only. It does not replace professional medical diagnosis or clinical treatment.
+                    This interactive AI Assistant provides <strong>general educational information only</strong> regarding common symptoms, drugs, and wellness queries. It does not provide medical diagnoses, treatment options, or clinical prescriptions, and <strong>does not replace professional medical advice</strong>, diagnosis, or treatment from qualified healthcare practitioners.
                 </p>
             </div>
         </div>
 
         <div class="card border-0 shadow-sm p-4 text-center">
-            <div class="py-4">
-                <div class="bg-light p-3 rounded-circle d-inline-block mb-3">
-                    <i class="fa-solid fa-user-doctor text-primary fs-2"></i>
+           <div class="card border-0 shadow-sm overflow-hidden text-center p-5 bg-white">
+            <div class="mb-4">
+                <div class="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 rounded-circle mb-3" style="width: 80px; height: 80px;">
+                    <i class="fa-solid fa-user-md text-success fs-1"></i>
                 </div>
-                <h5 class="fw-bold">Interactive Voice Health Concierge</h5>
-                <p class="text-muted small mb-4">Click the microphone tool button below to stream voice chat diagnostic references directly to the ElevenLabs system agent.</p>
-                
-                <div class="p-4 bg-light border rounded text-center text-muted border-dashed">
-                    <p class="small mb-0">✨ [ElevenLabs Voice Widget Container Interface] ✨</p>
-                </div>
+                <h3 class="fw-bold text-dark mb-2">Voice Assistant Companion</h3>
+                <p class="text-muted small px-3">
+                    Click the widget button below to initiate a real-time, bidirectional voice call regarding drugs, common symptoms, or generic medical information.
+                </p>
             </div>
+
+            <div class="d-flex justify-content-center py-3">
+                <elevenlabs-convai agent-id="agent_2501kvd17s2ffaht8nkmvaqk4w4m"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+            </div>
+
+            <div class="border-top pt-4 mt-4 text-start">
+                <h6 class="small fw-bold text-secondary mb-2">Suggested things to ask:</h6>
+                <ul class="text-muted small ps-3 mb-0">
+                    <li>"What are the common side effects of Paracetamol?" </li>
+                    <li>"What causes a mild tension headache?" </li>
+                    <li>"How many hours of sleep does an adult need daily?" </li>
+                </ul>
+            </div>
+        </div>
         </div>
     </div>
 </div>
+<?= $this->section('scripts') ?>
+<script src="https://elevenlabs.io/convai-widget/index.js" async></script>
+<?= $this->endSection() ?>
 <?= $this->endSection() ?>

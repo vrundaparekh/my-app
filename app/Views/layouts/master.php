@@ -49,6 +49,25 @@
             background-color: #fff !important;
             border-bottom: 1px solid #e3e6f0;
         }
+        .pagination-wrapper ul {
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+        gap: 10px;
+    }
+    .pagination-wrapper li a {
+        padding: 6px 12px;
+        border: 1px solid #dee2e6;
+        color: #0d6efd;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    .pagination-wrapper li.active span {
+        padding: 6px 12px;
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 4px;
+    }
     </style>
     <?= $this->renderSection('styles') ?>
 </head>
@@ -67,7 +86,7 @@
                     </a>
                 <?php endif; ?>
 
-                <a href="<?= base_url('healthcare-assistant') ?>" class="nav-link <?= url_is('healthcare-assistant') ? 'active' : '' ?>">
+                <a href="<?= base_url('admin/healthcare-assistant') ?>" class="list-group-item list-group-item-action bg-dark text-white">
                     <i class="fa-solid fa-heart-pulse me-2"></i> AI Assistant
                 </a>
                 

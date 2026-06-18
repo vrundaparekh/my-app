@@ -12,7 +12,7 @@
                 <div>
                     <h5 class="alert-heading fw-bold mb-1" style="font-size: 1rem;">Important Medical Disclaimer</h5>
                     <p class="mb-0 small text-dark opacity-85">
-                        This interactive AI Assistant provides <strong>general educational information only</strong> regarding common symptoms, drugs, and wellness queries[cite: 114, 115, 116, 117]. It does not provide medical diagnoses, treatment options, or clinical prescriptions, and <strong>does not replace professional medical advice</strong>, diagnosis, or treatment from qualified healthcare practitioners[cite: 122].
+                        This interactive AI Assistant provides <strong>general educational information only</strong> regarding common symptoms, drugs, and wellness queries. It does not provide medical diagnoses, treatment options, or clinical prescriptions, and <strong>does not replace professional medical advice</strong>, diagnosis, or treatment from qualified healthcare practitioners.
                     </p>
                 </div>
             </div>
@@ -25,20 +25,20 @@
                 </div>
                 <h3 class="fw-bold text-dark mb-2">Voice Assistant Companion</h3>
                 <p class="text-muted small px-3">
-                    Click the widget button below to initiate a real-time, bidirectional voice call regarding drugs, common symptoms, or generic medical information[cite: 114, 115, 116, 117, 120].
+                    Click the widget button below to initiate a real-time, bidirectional voice call regarding drugs, common symptoms, or generic medical information.
                 </p>
             </div>
 
             <div class="d-flex justify-content-center py-3">
-                <elevenlabs-convai agent-id="73e4db12-bf91-4a37-bf78-e52618cb3e7f"></elevenlabs-convai>
+                <elevenlabs-convai agent-id="agent_2501kvd17s2ffaht8nkmvaqk4w4m"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
             </div>
 
             <div class="border-top pt-4 mt-4 text-start">
                 <h6 class="small fw-bold text-secondary mb-2">Suggested things to ask:</h6>
                 <ul class="text-muted small ps-3 mb-0">
-                    <li>"What are the common side effects of Paracetamol?" [cite: 115]</li>
-                    <li>"What causes a mild tension headache?" [cite: 116]</li>
-                    <li>"How many hours of sleep does an adult need daily?" [cite: 117]</li>
+                    <li>"What are the common side effects of Paracetamol?" </li>
+                    <li>"What causes a mild tension headache?" </li>
+                    <li>"How many hours of sleep does an adult need daily?" </li>
                 </ul>
             </div>
         </div>

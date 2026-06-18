@@ -53,6 +53,13 @@
                 <?= view('admin/user_table_rows', ['users' => $users]) ?>
             </tbody>
         </table>
+        <?php if (isset($pager)): ?>
+        <div class="d-flex justify-content-center mt-4">
+            <div class="pagination-wrapper">
+                <?= $pager->links() ?>
+            </div>
+        </div>
+    <?php endif; ?>
     </div>
 </div>
 
