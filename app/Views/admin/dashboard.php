@@ -348,10 +348,10 @@ $(document).on('submit', '#editUserForm', function(e) {
                     title: response.message
                 });
 
-                $('#editUserModal').modal('hide');
+               $('#editUserModal').modal('hide');
                 setTimeout(function() {
-                    location.reload();
-                }, 2000);
+                    window.location.href = window.location.href.split('#')[0]; 
+                }, 1500);
 
             } else {
                 Swal.fire('Validation Error', response.message, 'error');

@@ -30,7 +30,9 @@
             </div>
 
             <div class="d-flex justify-content-center py-3">
-                <elevenlabs-convai agent-id="agent_2501kvd17s2ffaht8nkmvaqk4w4m"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+              
+                <elevenlabs-convai agent-id="agent_2501kvd17s2ffaht8nkmvaqk4w4m"></elevenlabs-convai>
+<script src="https://elevenlabs.io/convai-widget/index.js" async></script>
             </div>
 
             <div class="border-top pt-4 mt-4 text-start">
@@ -47,6 +49,3 @@
 </div>
 <?= $this->endSection() ?>
 
-<?= $this->section('scripts') ?>
-<script src="https://elevenlabs.io/convai-widget/index.js" async></script>
-<?= $this->endSection() ?>

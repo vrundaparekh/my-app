@@ -23,7 +23,9 @@ class UserModel extends Model
         'role_id', 
         'status',
         'reset_token',
-        'deleted_at'
+        'deleted_at',
+        'address',
+        'gender'
     ];
 
     

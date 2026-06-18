@@ -156,58 +156,65 @@ class AdminController extends BaseController
         $data['user'] = $user;
         return view('admin/user_edit_modal', $data); 
     }
-    public function update($id = null)
-    {
-        $userModel = new \App\Models\UserModel();
-        $user = $userModel->find($id);
+    public function update($user_id = null)
+{
 
-        if (!$user) {
-            return $this->response->setJSON(['success' => false, 'message' => 'User not found.']);
-        }
-        $validation = \Config\Services::validation();
-        $validation->setRules([
-            'first_name' => 'required|alpha_space|min_length[2]',
-            'last_name'  => 'required|alpha_space|min_length[2]',
-            'email'      => "required|valid_email|is_unique[users.email,id,{$id}]",
-            'role_id'    => 'required|integer',
-        ]);
-
-        if (!$validation->withRequest($this->request)->run()) {
-            return $this->response->setJSON(['success' => false, 'message' => implode(' ', $validation->getErrors())]);
-        }
-
-        $db = \Config\Database::connect();
-        $db->transStart();
-
-        $userModel->update($id, [
-            'first_name' => $this->request->getPost('first_name'),
-            'last_name'  => $this->request->getPost('last_name'),
-            'email'      => $this->request->getPost('email'),
-            'role_id'    => $this->request->getPost('role_id'),
-        ]);
-
-        $profileData = [
-            'dob'     => $this->request->getPost('dob') ?: null,
-            'gender'  => $this->request->getPost('gender') ?: null,
-            'address' => $this->request->getPost('address'),
-        ];
-
-        $file = $this->request->getFile('profile_pic');
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move(FCPATH . 'uploads/profile_pics', $newName);
-            $profileData['profile_pic'] = $newName;
-        }
-        $db->table('user_profiles')->where('user_id', $id)->update($profileData);
-
-        $db->transComplete();
-
-        if ($db->transStatus() === false) {
-            return $this->response->setJSON(['success' => false, 'message' => 'Database update error.']);
-        }
-
-        return $this->response->setJSON(['success' => true, 'message' => 'User account configuration modified successfully!']);
+    if ($user_id === null) {
+        $user_id = $this->request->getPost('user_id');
     }
+
+    $userModel = new \App\Models\UserModel();
+    $user = $userModel->find($user_id);
+
+    if (!$user) {
+        return $this->response->setJSON(['success' => false, 'message' => 'User not found. ID checked: ' . var_export($user_id, true)]);
+    }
+    
+    $validation = \Config\Services::validation();
+    $validation->setRules([
+        'first_name' => 'required|alpha_space|min_length[2]',
+        'last_name'  => 'required|alpha_space|min_length[2]',
+        'email'      => "required|valid_email|is_unique[users.email,id,{$user_id}]",
+        'role_id'    => 'required|integer',
+    ]);
+
+    if (!$validation->withRequest($this->request)->run()) {
+        return $this->response->setJSON(['success' => false, 'message' => implode(' ', $validation->getErrors())]);
+    }
+
+    $db = \Config\Database::connect();
+    $db->transStart();
+
+        $db->table('users')->where('id', $user_id)->update([
+        'first_name' => $this->request->getPost('first_name'),
+        'last_name'  => $this->request->getPost('last_name'),
+        'email'      => $this->request->getPost('email'),
+        'role_id'    => $this->request->getPost('role_id'),
+    ]);
+
+    $profileData = [
+        'dob'     => $this->request->getPost('dob') ?: null,
+        'gender'  => $this->request->getPost('gender') ?: null,
+        'address' => $this->request->getPost('address'),
+    ];
+
+    $file = $this->request->getFile('profile_pic');
+    if ($file && $file->isValid() && !$file->hasMoved()) {
+        $newName = $file->getRandomName();
+        $file->move(FCPATH . 'uploads/profile_pics', $newName);
+        $profileData['profile_pic'] = $newName;
+    }
+
+    $db->table('user_profiles')->where('user_id', $user_id)->update($profileData);
+
+    $db->transComplete();
+
+    if ($db->transStatus() === false) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Database update error.']);
+    }
+
+    return $this->response->setJSON(['success' => true, 'message' => 'User account configuration modified successfully!']);
+}
     public function delete($id = null)
     {
         $userModel = new \App\Models\UserModel();
